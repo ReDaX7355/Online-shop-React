@@ -1,0 +1,16 @@
+//NumberBlock
+
+.number__block:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.number {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.number__decription {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #666;
+}

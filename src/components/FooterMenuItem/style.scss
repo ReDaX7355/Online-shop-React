@@ -1,0 +1,25 @@
+//FooterMenuLinks
+
+.footer__menu-title {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.footer__menu-list {
+  list-style: none;
+}
+
+.menu__item {
+  margin-bottom: 10px;
+}
+
+.footer__menu-link {
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

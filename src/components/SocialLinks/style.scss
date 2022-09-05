@@ -1,0 +1,36 @@
+//SocialLinks
+
+.social__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.social__items {
+  max-width: 200px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.social__title {
+  margin-bottom: 20px;
+}
+
+.social__link {
+  display: block;
+  // padding: 10px;
+  text-align: center;
+  background-color: #00ab78;
+  line-height: 35px;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten(#00ab78, 5%);
+  }
+}
