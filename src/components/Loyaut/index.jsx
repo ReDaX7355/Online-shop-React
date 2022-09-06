@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { Outlet } from 'react-router-dom';
 
+import ShopState from './../../context/ShopState';
 import Header from './../Header';
-import Categories from './../Categories';
 import Footer from './../Footer';
 
-// import './style.scss';
 
-const Loyaut = ({ cartItems, login }) => {
+const Loyaut = () => {
+
   return (
+    <ShopState>
     <div className="wrapper">
-      <Header cartItems={cartItems} login={login} />
+      <Header/>
       <div className="content">
         <Outlet />
       </div>
       <Footer />
     </div>
+    </ShopState>
   );
 };
 

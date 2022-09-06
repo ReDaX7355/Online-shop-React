@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import './style.scss';
+import ShopContext from '../../context/ShopContext';
 
-const CartItem = ({ item, deleteCartItem }) => {
+const CartItem = ({ item }) => {
+
+  const {deleteFromCart} = useContext(ShopContext);
+
   return (
     <div className="cart-item">
       <div className="cart__left__block">
@@ -30,7 +34,7 @@ const CartItem = ({ item, deleteCartItem }) => {
         </div>
       </div>
       <div className="cart__rigth__block">
-        <div className="cart__delete" onClick={() => deleteCartItem(item.id)} title="Удалить">
+        <div className="cart__delete" onClick={() => deleteFromCart(item.id)} title="Удалить">
           <FontAwesomeIcon icon={faTrash} />
         </div>
       </div>

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 
+import ShopContext from '../../context/ShopContext';
+
 import './style.scss';
 
-const ProductItem = ({ item, handleCartItems }) => {
+const ProductItem = ({ item }) => {
+  
+  const {addToCart} = useContext(ShopContext);
   
   const sale = Math.floor(
     100 - (parseInt(item.sale) / parseInt(item.price)) * 100
@@ -38,7 +42,7 @@ const ProductItem = ({ item, handleCartItems }) => {
             <div className="product__price-value">{item.price} руб.</div>
           )}
         </div>
-        <div className="product__add" onClick={() => handleCartItems(item)}>
+        <div className="product__add" onClick={() => addToCart(item)}>
           <FontAwesomeIcon icon={faCartArrowDown} />
         </div>
       </div>

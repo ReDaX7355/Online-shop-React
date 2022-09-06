@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import Search from './../Search';
@@ -9,8 +9,12 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import './style.scss';
+import ShopContext from '../../context/ShopContext';
 
-const Header = ({ cartItems }) => {
+const Header = () => {
+
+  const {state} = useContext(ShopContext);
+
   return (
     <header className="header">
       <div className="container">
@@ -22,8 +26,8 @@ const Header = ({ cartItems }) => {
           <Search />
           <Link to="cart" className="cart__icon">
             <FontAwesomeIcon icon={faCartShopping} />
-            {cartItems.length > 0 ? (
-              <span className="cart__items-count">{cartItems.length}</span>
+            {state.cartItems.length > 0 ? (
+              <span className="cart__items-count">{state.cartItems.length}</span>
             ) : null}
           </Link>
           <Link to="login" className="user__icon">

@@ -1,13 +1,16 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import React, {useContext} from 'react';
 
 import CartItem from './../CartItem';
+import ShopContext from '../../context/ShopContext';
 
 import './style.scss';
 
-const Cart = ({ cartItems, deleteCartItem }) => {
-  const cortTotal = cartItems.reduce(
+
+const Cart = () => {
+
+  const {state} = useContext(ShopContext);
+
+  const cartTotal = state.cartItems.reduce(
     (total, item) =>
       item.sale
         ? (total += parseInt(item.sale))
@@ -20,21 +23,20 @@ const Cart = ({ cartItems, deleteCartItem }) => {
       <div className="container">
         <h2>Корзина</h2>
         <div className="cart__list">
-          {cartItems.length > 0 ? (
-            cartItems.map((item) => (
+          {state.cartItems.length > 0 ? (
+            state.cartItems.map((item) => (
               <CartItem
                 key={item.id}
                 item={item}
-                deleteCartItem={deleteCartItem}
               />
             ))
           ) : (
             <h4>Ваша корзина пуста</h4>
           )}
         </div>
-        {cartItems.length > 0 ? (
+        {state.cartItems.length > 0 ? (
           <div className="cart__footer">
-            <div className="cart__total">Итого: {cortTotal} руб.</div>
+            <div className="cart__total">Итого: {cartTotal} руб.</div>
             <div className="order">Оформить заказ</div>
           </div>
         ) : null}
