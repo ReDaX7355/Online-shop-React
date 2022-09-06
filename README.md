@@ -1,3 +1,3 @@
-# react-optrey
+# Online Shop (React project)
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-optrey)
+This is site a created for portfolio
