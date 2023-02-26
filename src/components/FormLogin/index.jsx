@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import ShopContext from "../../context/ShopContext";
+import users from "../../data/users";
 
-import './style.scss';
+import "./style.scss";
 
 // const useValidation = (value, validations) => {
 //   const [isEmpty, setIsEmpty] = React.useState(true);
@@ -42,40 +45,50 @@ import './style.scss';
 
 // }
 
-const FormLogin = ({ setLogin, login }) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+const FormLogin = () => {
+  const [login, setLogin] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const { loginUser } = useContext(ShopContext);
+
+  const navigate = useNavigate();
 
   const submitForm = (e) => {
     e.preventDefault();
+    users.map((el) => {
+      if (el.login === login && el.password === password) {
+        loginUser(login);
+        navigate(`/user/${login}`);
+      }
+    });
   };
 
   return (
-    <form className="login__form" onSubmit={submitForm}>
-      <label htmlFor="login">Телефон или Email</label>
+    <form className='login__form' onSubmit={submitForm}>
+      <label htmlFor='login'>Логин</label>
       <input
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={login}
+        onChange={(e) => setLogin(e.target.value)}
         required
-        type="text"
-        id="login"
+        type='text'
+        id='login'
       />
-      <label htmlFor="password">Пароль</label>
+      <label htmlFor='password'>Пароль</label>
       <input
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-        type="password"
-        id="password"
+        type='password'
+        id='password'
       />
-      <div className="form__footer">
-        <a className="form__footer-link" href="#">
+      <div className='form__footer'>
+        <Link to='../registration' className='form__footer-link' href='#'>
           Зарегистрироваться
-        </a>
-        <a className="form__footer-link" href="#">
+        </Link>
+        <a className='form__footer-link' href='#'>
           Забыли пароль?
         </a>
-        <button type="submit">Войти</button>
+        <button type='submit'>Войти</button>
       </div>
     </form>
   );

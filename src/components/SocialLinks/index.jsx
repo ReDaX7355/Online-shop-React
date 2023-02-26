@@ -1,21 +1,36 @@
-import React from 'react';
+import React from "react";
 
-import './style.scss';
+import {
+  AiFillFacebook,
+  AiFillYoutube,
+  AiOutlineInstagram,
+  AiOutlineTwitter,
+} from "react-icons/ai";
+
+import "./style.scss";
 
 const SocialLinks = () => {
   return (
-    <ul className="social__items">
-      <li className="social__item">
-        <a className="social__link">TW</a>
+    <ul className='social__items'>
+      <li className='social__item'>
+        <a className='social__link'>
+          <AiOutlineTwitter size={"1.5em"} />
+        </a>
       </li>
-      <li className="social__item">
-        <a className="social__link">IG</a>
+      <li className='social__item'>
+        <a className='social__link'>
+          <AiOutlineInstagram size={"1.5em"} />
+        </a>
       </li>
-      <li className="social__item">
-        <a className="social__link">VK</a>
+      <li className='social__item'>
+        <a className='social__link'>
+          <AiFillFacebook size={"1.5em"} />
+        </a>
       </li>
-      <li className="social__item">
-        <a className="social__link">YT</a>
+      <li className='social__item'>
+        <a className='social__link'>
+          <AiFillYoutube size={"1.5em"} />
+        </a>
       </li>
     </ul>
   );

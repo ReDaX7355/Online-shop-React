@@ -1,37 +1,39 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { Link, useParams } from "react-router-dom";
 
-import Search from './../Search';
-import Catalog from './../Catalog';
+import Search from "./../Search";
+import Catalog from "./../Catalog";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 
-import './style.scss';
-import ShopContext from '../../context/ShopContext';
+import "./style.scss";
+import ShopContext from "../../context/ShopContext";
 
 const Header = () => {
-
-  const {state} = useContext(ShopContext);
+  const { state } = useContext(ShopContext);
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header__content">
-          <Link to="/" className="logo">
+    <header className='header'>
+      <div className='container'>
+        <div className='header__content'>
+          <Link to='/' className='logo'>
             Shop
           </Link>
           <Catalog />
           <Search />
-          <Link to="cart" className="cart__icon">
-            <FontAwesomeIcon icon={faCartShopping} />
+          <Link to='cart' className='cart__icon'>
+            <FaShoppingCart size={"1.2em"} />
             {state.cartItems.length > 0 ? (
-              <span className="cart__items-count">{state.cartItems.length}</span>
+              <span className='cart__items-count'>
+                {state.cartItems.length}
+              </span>
             ) : null}
           </Link>
-          <Link to="login" className="user__icon">
-            <FontAwesomeIcon icon={faUser} />
+          <Link
+            to={state.auth ? `user/${state.currentUser}` : "login"}
+            className='user__icon'
+          >
+            <FaUserAlt size={"1.2em"} />
           </Link>
         </div>
       </div>

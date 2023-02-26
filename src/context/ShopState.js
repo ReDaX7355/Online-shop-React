@@ -1,27 +1,57 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from "react";
 
 import Reduser from "./reduser";
 import defaultState from "./defaultState";
-import ShopContext from './ShopContext';
-import types from './types';
+import ShopContext from "./ShopContext";
+import types from "./types";
+import users from "../data/users";
 
-const ShopState = ({children}) => {
-
+const ShopState = ({ children }) => {
   const [state, dispatch] = useReducer(Reduser, defaultState);
 
   const addToCart = (item) => {
-    dispatch({type: types.ADD_CART_ITEM, payload: item})
-  }
+    dispatch({ type: types.ADD_CART_ITEM, payload: item });
+  };
 
   const deleteFromCart = (id) => {
-    dispatch({type: types.DELETE_CART_ITEM, payload: id})
-  }
+    dispatch({ type: types.DELETE_CART_ITEM, payload: id });
+  };
 
-  return (
-    <ShopContext.Provider value={{state, addToCart, deleteFromCart}}>
-      {children}
-    </ShopContext.Provider>
-  );
+  const registration = (login, email, password) => {
+    users.push({ login, email, password });
+  };
+
+  const loginUser = (login) => {
+    dispatch({ type: types.SIGN_IN, payload: login });
+    window.localStorage.setItem("auth", true);
+    window.localStorage.setItem("currentUser", login);
+  };
+
+  const signOut = () => {
+    dispatch({ type: types.SIGN_OUT });
+    window.localStorage.removeItem("auth");
+    window.localStorage.removeItem("currentUser");
+  };
+
+  const value = {
+    state,
+    dispatch,
+    addToCart,
+    deleteFromCart,
+    registration,
+    loginUser,
+    signOut,
+  };
+
+  useEffect(() => {
+    const auth = window.localStorage.getItem("auth");
+    const currentUser = window.localStorage.getItem("currentUser");
+    if (auth && currentUser) {
+      dispatch({ type: types.SIGN_IN, payload: currentUser });
+    }
+  }, []);
+
+  return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
 
 export default ShopState;

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Смартфон Samsung Galaxy S21 128GB Black",
+    "img": "https://cdn.svyaznoy.ru/upload/iblock/399/39955effec3f91eecd8897fa6233622c.jpg/resize/483x483/hq/",
+    "price": "74990",
+    "": "67990",
+    "new": false
+  },
+  {
+    "id": 2,
+    "title": "Смартфон Samsung Galaxy S21 256GB Black",
+    "img": "https://static.beeline.ru/shop/media/goods/334x434/1c739651-9685-479c-8710-a734d146e1b7.png",
+    "price": "79990",
+    "sale": "",
+    "new": true
+  },
+  {
+    "id": 3,
+    "title": "Смартфон Xiaomi MI 10T 8+128GB Black",
+    "img": "https://static.beeline.ru/shop/media/goods/334x434/eb537e05-1aa0-4fa3-8cfa-2c8086fc25ab.png",
+    "price": "35990",
+    "sale": "29990",
+    "new": false
+  },
+  {
+    "id": 4,
+    "title": "Смартфон Nokia 3.4",
+    "img": "https://mtscdn.ru/upload/iblock/787/Nokia_3.4_FJORD.jpg",
+    "price": "20990",
+    "sale": "",
+    "new": false
+  },
+  {
+    "id": 5,
+    "title": "Смартфон Xiaomi Redmi 9 8+128GB Black",
+    "img": "https://avatars.mds.yandex.net/get-mpic/5283489/img_id4085238578383795179.jpeg/orig",
+    "price": "47990",
+    "sale": "25990",
+    "new": false
+  },
+  {
+    "id": 6,
+    "title": "Смартфон Iphone X 256GB Black",
+    "img": "https://smart-bazar.ru/upload/iblock/05d/utkh6u5inn6dqazwxpfvnurki9t4s1rp.jpg",
+    "price": "87990",
+    "sale": "80990",
+    "new": false
+  },
+  {
+    "id": 7,
+    "title": "Смартфон Poco X4 128GB",
+    "img": "https://mtscdn.ru/upload/iblock/d7b/pms_1645778733.99825671.png",
+    "price": "25990",
+    "sale": "",
+    "new": false
+  },
+  {
+    "id": 8,
+    "title": "Смартфон Samsung A31 Black",
+    "img": "https://i.eldorado.ua/goods_images/1038946/6592869-1585826838.jpg",
+    "price": "35990",
+    "sale": "",
+    "new": true
+  }
+]

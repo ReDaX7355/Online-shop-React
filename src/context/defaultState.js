@@ -1,10 +1,8 @@
-import products from './../data/products'
-
 const defaultState = {
-  products,
+  products: [],
   cartItems: [],
-  login: false,
-
-}
+  auth: false,
+  currentUser: "",
+};
 
 export default defaultState;
