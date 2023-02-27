@@ -1,16 +1,20 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from 'react';
 
-import Reduser from "./reduser";
-import defaultState from "./defaultState";
-import ShopContext from "./ShopContext";
-import types from "./types";
-import users from "../data/users";
+import Reduser from './reduser';
+import defaultState from './defaultState';
+import ShopContext from './ShopContext';
+import types from './types';
+import users from '../data/users';
 
 const ShopState = ({ children }) => {
   const [state, dispatch] = useReducer(Reduser, defaultState);
 
   const addToCart = (item) => {
     dispatch({ type: types.ADD_CART_ITEM, payload: item });
+  };
+
+  const changeCart = (items) => {
+    dispatch({ type: types.CHANGE_CART, payload: items });
   };
 
   const deleteFromCart = (id) => {
@@ -23,20 +27,21 @@ const ShopState = ({ children }) => {
 
   const loginUser = (login) => {
     dispatch({ type: types.SIGN_IN, payload: login });
-    window.localStorage.setItem("auth", true);
-    window.localStorage.setItem("currentUser", login);
+    window.localStorage.setItem('auth', true);
+    window.localStorage.setItem('currentUser', login);
   };
 
   const signOut = () => {
     dispatch({ type: types.SIGN_OUT });
-    window.localStorage.removeItem("auth");
-    window.localStorage.removeItem("currentUser");
+    window.localStorage.removeItem('auth');
+    window.localStorage.removeItem('currentUser');
   };
 
   const value = {
     state,
     dispatch,
     addToCart,
+    changeCart,
     deleteFromCart,
     registration,
     loginUser,
@@ -44,8 +49,8 @@ const ShopState = ({ children }) => {
   };
 
   useEffect(() => {
-    const auth = window.localStorage.getItem("auth");
-    const currentUser = window.localStorage.getItem("currentUser");
+    const auth = window.localStorage.getItem('auth');
+    const currentUser = window.localStorage.getItem('currentUser');
     if (auth && currentUser) {
       dispatch({ type: types.SIGN_IN, payload: currentUser });
     }

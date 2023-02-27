@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import ShopContext from "../../context/ShopContext";
-import users from "../../data/users";
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import ShopContext from '../../context/ShopContext';
+import users from '../../data/users';
 
-import "./style.scss";
+import './style.scss';
 
 // const useValidation = (value, validations) => {
 //   const [isEmpty, setIsEmpty] = React.useState(true);
@@ -46,8 +46,8 @@ import "./style.scss";
 // }
 
 const FormLogin = () => {
-  const [login, setLogin] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [login, setLogin] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   const { loginUser } = useContext(ShopContext);
 
@@ -64,31 +64,31 @@ const FormLogin = () => {
   };
 
   return (
-    <form className='login__form' onSubmit={submitForm}>
-      <label htmlFor='login'>Логин</label>
+    <form className="login__form" onSubmit={submitForm}>
+      <label htmlFor="login">Логин</label>
       <input
         value={login}
         onChange={(e) => setLogin(e.target.value)}
         required
-        type='text'
-        id='login'
+        type="text"
+        id="login"
       />
-      <label htmlFor='password'>Пароль</label>
+      <label htmlFor="password">Пароль</label>
       <input
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-        type='password'
-        id='password'
+        type="password"
+        id="password"
       />
-      <div className='form__footer'>
-        <Link to='../registration' className='form__footer-link' href='#'>
+      <div className="form__footer">
+        <Link to="../registration" className="form__footer-link" href="#">
           Зарегистрироваться
         </Link>
-        <a className='form__footer-link' href='#'>
+        <a className="form__footer-link" href="#">
           Забыли пароль?
         </a>
-        <button type='submit'>Войти</button>
+        <input type="submit" value="Войти" />
       </div>
     </form>
   );

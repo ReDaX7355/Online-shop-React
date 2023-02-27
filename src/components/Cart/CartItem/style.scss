@@ -12,10 +12,32 @@
   border-bottom: 1px solid #ccc;
 }
 
-.cart__left__block{
+.cart__left__block {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+
+.product__price-value {
+  margin-bottom: 8px;
+}
+
+.product_count-info {
+  display: flex;
+  align-items: center;
+}
+
+.product_count {
+  margin: 0 10px;
+  font-size: 15px;
+}
+
+.button_count {
+  line-height: 0;
+  padding: 5px;
+  border: none;
+  background-color: #00ab78;
+  color: #fff;
 }
 
 .cart__image {
