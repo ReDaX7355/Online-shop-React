@@ -1,22 +1,50 @@
-import React from "react";
+import React, { useState } from 'react';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import "./style.scss";
+import './style.scss';
 
 const Search = () => {
-  const search = (e) => {
+  const [searchInput, setSearchInput] = useState('');
+  const navigate = useNavigate();
+
+  const hundleSearchInput = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  const searchSubmit = (e) => {
     e.preventDefault();
-    console.log("Search");
+    navigate({
+      pathname: 'search',
+      search: createSearchParams({
+        foo: searchInput,
+      }).toString(),
+    });
+    setSearchInput('');
+  };
+
+  const clickButtonSearch = () => {
+    document.querySelector('.search > form > input[type="submit"]').click();
   };
 
   return (
-    <div className='search'>
-      <form onSubmit={(e) => search(e)}>
-        <input className='search__form' type='text' placeholder='Поиск' />
+    <div className="search">
+      <form onSubmit={(e) => searchSubmit(e)}>
+        <input
+          onChange={hundleSearchInput}
+          value={searchInput}
+          className="search__form"
+          type="text"
+          placeholder="Поиск"
+        />
+        <input type="submit" value="" />
       </form>
-      <FontAwesomeIcon icon={faMagnifyingGlass} />
+      <FontAwesomeIcon
+        onClick={() => clickButtonSearch()}
+        icon={faMagnifyingGlass}
+      />
     </div>
   );
 };

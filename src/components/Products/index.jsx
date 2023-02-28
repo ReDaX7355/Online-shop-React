@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react';
 
-import ShopContext from "./../../context/ShopContext";
-import ProductItem from "./ProductItem";
-import Categories from "./../Categories";
-import products from "./../../data/products";
+import ShopContext from './../../context/ShopContext';
+import ProductItem from './ProductItem';
+import Categories from './../Categories';
+import products from './../../data/products';
 
-import "./style.scss";
-import types from "../../context/types";
+import './style.scss';
+import types from '../../context/types';
 
 const Products = () => {
   const { state, dispatch } = useContext(ShopContext);
@@ -15,17 +15,18 @@ const Products = () => {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      dispatch({ type: types.LOAD_PRODUCTS, payload: products });
+      // dispatch({ type: types.LOAD_PRODUCTS, payload: products });
+
       setLoading(false);
-    }, 1500);
+    }, 500);
   }, []);
 
   return (
-    <div className='products'>
-      <div className='container'>
+    <div className="products">
+      <div className="container">
         <Categories />
         <h2>Список товаров</h2>
-        <div className='products__items'>
+        <div className="products__items">
           {loading ? (
             <h1>Загрузка...</h1>
           ) : (

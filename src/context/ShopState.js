@@ -5,6 +5,7 @@ import defaultState from './defaultState';
 import ShopContext from './ShopContext';
 import types from './types';
 import users from '../data/users';
+import products from '../data/products';
 
 const ShopState = ({ children }) => {
   const [state, dispatch] = useReducer(Reduser, defaultState);
@@ -55,6 +56,10 @@ const ShopState = ({ children }) => {
       dispatch({ type: types.SIGN_IN, payload: currentUser });
     }
   }, []);
+
+  useEffect(() => {
+    dispatch({ type: types.LOAD_PRODUCTS, payload: products });
+  }, [])
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
