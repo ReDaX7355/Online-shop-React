@@ -1,62 +1,65 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import ShopContext from "../../context/ShopContext";
-import users from "../../data/users";
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ShopContext from '../../context/ShopContext';
+import users from '../../data/users';
+
+import './style.scss';
 
 function FormRegistration() {
-  const [login, setLogin] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [login, setLogin] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
   const navigate = useNavigate();
 
   const { state, registration } = useContext(ShopContext);
 
   const submitForm = (e) => {
     e.preventDefault();
-    if (state.users.length > 0) {
+    console.log(users.length);
+    if (users.length > 0) {
       users.map((el) => {
         if (el.email === email) {
-          alert("Такой пользователь существует");
+          alert('Такой пользователь существует');
         } else {
           registration(login, email, password);
-          navigate("/login");
+          navigate('/login');
         }
       });
     } else {
       registration(login, email, password);
-      navigate("/login");
+      navigate('/login');
     }
     console.log(state.users);
   };
 
   return (
-    <form className='login__form' onSubmit={submitForm}>
-      <label htmlFor='login'>Логин</label>
+    <form className="registration__form" onSubmit={submitForm}>
+      <label htmlFor="login">Логин</label>
       <input
         value={login}
         onChange={(e) => setLogin(e.target.value)}
         required
-        type='text'
-        id='login'
+        type="text"
+        id="login"
       />
-      <label htmlFor='email'>Email</label>
+      <label htmlFor="email">Email</label>
       <input
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        type='email'
-        id='email'
+        type="email"
+        id="email"
       />
-      <label htmlFor='password'>Пароль</label>
+      <label htmlFor="password">Пароль</label>
       <input
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-        type='password'
-        id='password'
+        type="password"
+        id="password"
       />
-      <div className='form__footer'>
-        <button type='submit'>Зарегистрироваться</button>
+      <div className="form__footer">
+        <input type="submit" value="Зарегистрироваться" />
       </div>
     </form>
   );

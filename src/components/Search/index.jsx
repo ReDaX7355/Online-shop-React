@@ -16,6 +16,9 @@ const Search = () => {
 
   const searchSubmit = (e) => {
     e.preventDefault();
+    if (!searchInput) {
+      return;
+    }
     navigate({
       pathname: 'search',
       search: createSearchParams({

@@ -15,36 +15,42 @@ const CartItem = ({ item }) => {
     setQuantity(() => {
       return quantity + 1;
     });
-    changeCountQuantity();
+    changeCountQuantity(quantity + 1);
   };
 
-  const lessQuantity = (id) => {
+  const lessQuantity = () => {
     if (quantity == 1) {
       return;
     }
     setQuantity(() => {
       return quantity - 1;
     });
-    changeCountQuantity();
+    changeCountQuantity(quantity - 1);
   };
 
   const changeQuantity = (value) => {
     setQuantity(Number(value));
-    changeCountQuantity();
+    changeCountQuantity(Number(value));
   };
 
-  const changeCountQuantity = () => {
+  const setStartValue = (value) => {
+    if (!value) {
+      setQuantity(1);
+      changeCountQuantity(1);
+    }
+  };
+
+  const changeCountQuantity = (count) => {
     const id = item.id;
     const itemIndex = state.cartItems.findIndex((item) => item.id == id);
-      const newItem = {
-        ...state.cartItems[itemIndex],
-        quantity: quantity,
-      };
+    const newItem = {
+      ...state.cartItems[itemIndex],
+      quantity: count,
+    };
 
-      const newCart = state.cartItems.slice();
-      newCart.splice(itemIndex, 1, newItem);
-      changeCart(newCart);
-      changeCart(newCart);
+    const newCart = state.cartItems.slice();
+    newCart.splice(itemIndex, 1, newItem);
+    changeCart(newCart);
   };
 
   // useEffect(() => {
@@ -108,6 +114,7 @@ const CartItem = ({ item }) => {
               Количество:
               <input
                 onChange={(e) => changeQuantity(e.target.value)}
+                onBlur={(e) => setStartValue(e.target.value)}
                 type="text"
                 value={quantity ? quantity : ''}
               />
