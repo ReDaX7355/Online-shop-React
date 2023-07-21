@@ -8,6 +8,13 @@
   z-index: 3;
 }
 
+.header__container {
+  width: 100%;
+  max-width: 1170px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
 .header__content {
   display: flex;
   justify-content: space-between;
