@@ -38,7 +38,7 @@ const Search = () => {
         <input
           onChange={hundleSearchInput}
           value={searchInput}
-          className="search__form"
+          className="search__input"
           type="text"
           placeholder="Поиск"
         />

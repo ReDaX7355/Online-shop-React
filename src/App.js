@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import LoginPage from './pages/LoginPage';
 import PersonalPage from './pages/PersonalPage';
+import ProductPage from './pages/ProductPage';
 import SearchPage from './pages/SearchPage';
 import RegistrationPage from './pages/RegistrationPage';
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/" element={<Loyaut />}>
           <Route index element={<HomePage />} />
           <Route path="cart" element={<CartPage />} />
+          <Route path=":category/:id" element={<ProductPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="registration" element={<RegistrationPage />} />
           <Route path="user/:login" element={<PersonalPage />} />

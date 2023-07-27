@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -87,7 +88,9 @@ const CartItem = ({ item }) => {
       <div className="cart__left__block">
         <img src={item.img} className="cart__image" />
         <div className="cart__description">
-          <div className="cart__title">{item.title}</div>
+          <Link to={'/product/' + item.id}>
+            <div className="cart__title">{item.title}</div>{' '}
+          </Link>
           {item.sale ? (
             <>
               <div className="product__sale-value">{item.price} руб.</div>
