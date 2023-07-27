@@ -7,14 +7,21 @@ import './style.scss';
 const Catalog = () => {
   const [visible, setVisible] = React.useState(false);
 
+  const visibleHandler = (e) => {
+    console.log(e.target.closest('.catalog__block'));
+    if (!e.target.closest('.catalog__block')) {
+      setVisible(!visible);
+    }
+  };
+
   return (
     <div className="catalog">
-      <button className="catalog-button" onClick={() => setVisible(!visible)}>
+      <button className="catalog-button" onClick={(e) => visibleHandler(e)}>
         <div className={visible ? 'burger active' : 'burger'}></div>
         <span>Каталог</span>
       </button>
       {visible && (
-        <div className="catalog__wrapper" onClick={(f) => f}>
+        <div className="catalog__wrapper" onClick={(e) => visibleHandler(e)}>
           <div className="catalog__block">
             <CatalogList
               title={'Смартфоны и планшеты'}

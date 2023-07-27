@@ -88,7 +88,7 @@ const CartItem = ({ item }) => {
       <div className="cart__left__block">
         <img src={item.img} className="cart__image" />
         <div className="cart__description">
-          <Link to={'/product/' + item.id}>
+          <Link to={'/' + item.category + '/' + item.id}>
             <div className="cart__title">{item.title}</div>{' '}
           </Link>
           {item.sale ? (

@@ -1,7 +1,7 @@
 .products__items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: space-around;
+  justify-items: center;
   gap: 20px;
   padding: 30px 0;
 }

@@ -5,7 +5,6 @@
   border-radius: 7px;
   padding: 30px;
   word-wrap: normal;
-  min-width: 300px;
   max-width: 300px;
   height: 100%;
   display: flex;
@@ -26,7 +25,7 @@
   transition: 0.3s ease;
   & img {
     display: block;
-    height: 300px;
+    height: 250px;
     width: 100%;
     color: #fff;
   }

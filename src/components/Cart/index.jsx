@@ -23,6 +23,10 @@ const Cart = () => {
     );
   }, [state]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="cart">
       <div className="container">
