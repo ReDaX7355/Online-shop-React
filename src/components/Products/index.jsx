@@ -15,16 +15,14 @@ const Products = () => {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      // dispatch({ type: types.LOAD_PRODUCTS, payload: products });
-
-      setLoading(false);
+      dispatch({ type: types.LOAD_PRODUCTS, payload: products });
     }, 500);
+    setLoading(false);
   }, []);
 
   return (
     <div className="products">
       <div className="container">
-        <Categories />
         <h2>Список товаров</h2>
         <div className="products__items">
           {loading ? (

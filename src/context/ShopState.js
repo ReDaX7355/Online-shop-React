@@ -57,9 +57,9 @@ const ShopState = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => {
-    dispatch({ type: types.LOAD_PRODUCTS, payload: products });
-  }, [])
+  // useEffect(() => {
+  //   dispatch({ type: types.LOAD_PRODUCTS, payload: products });
+  // }, [])
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
